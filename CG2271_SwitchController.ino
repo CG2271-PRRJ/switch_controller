@@ -4,8 +4,8 @@
  *  ********** Motor Controls **********
  *  A : Forward
  *  B : Reverse
- *  X : Fast Reverse
- *  Y : Fast Forward
+ *  X : Fast Forward
+ *  Y : Fast Reverse
  *  L : Forward Left
  *  R : Forward Right
  *  ZL : Fast Forward Left
@@ -225,12 +225,12 @@ void processGamepad(ControllerPtr gamepad)
     curr_command = FORWARD;
     return;
   }
-  else if ((gamepad->buttons() & 0x0004) == 0x0004)
+  else if ((gamepad->buttons() & 0x0008) == 0x0008)
   {
     curr_command = FAST_FORWARD;
     return;
   }
-  else if ((gamepad->buttons() & 0x0008) == 0x0008)
+  else if ((gamepad->buttons() & 0x0004) == 0x0004)
   {
     curr_command = FAST_REVERSE;
     return;

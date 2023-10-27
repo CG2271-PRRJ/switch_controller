@@ -67,6 +67,7 @@ void checkCommand()
   if (curr_command != prev_command)
   {
     Serial.write(curr_command);
+    Serial.flush();
   }
 
   prev_command = curr_command;
@@ -240,6 +241,7 @@ void processGamepad(ControllerPtr gamepad)
   if (gamepad->miscButtons() == 0x01)
   {
     curr_command = STOP;
+    Serial.write(curr_command);
     return;
   }
   if (gamepad->miscButtons() == 0x02)

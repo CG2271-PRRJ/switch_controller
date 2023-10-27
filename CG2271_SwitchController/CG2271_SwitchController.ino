@@ -243,19 +243,20 @@ void processGamepad(ControllerPtr gamepad)
   {
     curr_command = STOP;
     Serial.write(curr_command);
+    Serial.flush();
     return;
   }
-  if (gamepad->miscButtons() == 0x02)
+  else if (gamepad->miscButtons() == 0x02)
   {
     curr_command = NORMAL_SONG;
     return;
   }
-  if (gamepad->miscButtons() == 0x04)
+  else if (gamepad->miscButtons() == 0x04)
   {
     curr_command = ALTERNATE_SONG;
     return;
   }
-  if (gamepad->miscButtons() == 0x08)
+  else if (gamepad->miscButtons() == 0x08)
   {
     curr_command = STOP_SONG;
     return;

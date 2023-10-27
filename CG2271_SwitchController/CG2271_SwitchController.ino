@@ -44,8 +44,9 @@
 #define REVERSE_RIGHT 7
 #define FAST_REVERSE_RIGHT 6
 
-#define NORMAL_SONG 225
-#define ALTERNATE_SONG 226
+#define STOP_SONG 225
+#define NORMAL_SONG 226
+#define ALTERNATE_SONG 227
 
 #include <Arduino.h>
 #include <Bluepad32.h>
@@ -252,6 +253,11 @@ void processGamepad(ControllerPtr gamepad)
   if (gamepad->miscButtons() == 0x04)
   {
     curr_command = ALTERNATE_SONG;
+    return;
+  }
+  if (gamepad->miscButtons() == 0x08)
+  {
+    curr_command = STOP_SONG;
     return;
   }
 
